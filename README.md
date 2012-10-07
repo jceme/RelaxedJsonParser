@@ -3,15 +3,17 @@ Relaxed JSON Parser
 
 This is a **JSON parser** which accepts badly-formatted JSON sources for input.
 
+The intention was to have a more liberal parser than `JSON.parse()` ([Standard JSON spec](http://www.json.org/)).
+
 This generator is usable as CommonJS module for Javascript.
 
-Many thanks to David Majda and his parser generator *PEG.js*.
+Many thanks to David Majda and his parser generator [PEG.js](http://pegjs.majda.cz/).
 
 
 Usage
 -----
 Assume the following JSON input in a file *myconf.json*:
-```json
+```javascript
 /*
  * This is my example config JSON file with comments.
  * It demonstrates a lax JSON file format.
@@ -50,23 +52,25 @@ var fs = require("fs"),
 fs.readFile("myconf.json", function(err, source) {
 	if (err) throw err;
 	
-	var json = Parser.parse(source);
+	var jsondata = Parser.parse(source);
 	
-	/**
-	 * json is now this Javascript object:
-	 *
-	 * {
-	 *   "server": "http://example.com",
-	 *   "port": 8080,
-	 *   "user": "Test",
-	 *   "$password": "me\there\non",
-	 *   "modes": [
-	 *     "on", "off", "active", "disabled"
-	 *   ],
-	 *   "foo": 0.3
-	 * }
-	 */
-	
-	// Use it ...
+	// JSON parsed into jsondata, you are now free to use it ...
 });
+```
+
+The *jsondata* variable in the callback will be this Javascript object:
+```json
+{
+	"server": "http://example.com",
+	"port": 8080,
+	"user": "Test",
+	"$password": "me\there\non",
+	"modes": [
+		"on",
+		"off",
+		"active",
+		"disabled"
+	],
+	"foo": 0.3
+}
 ```
