@@ -1,0 +1,26 @@
+/* This is a test */
+
+// With a complex setup
+
+{
+,
+	mykey: "is \"here \' for ' you \n test"
+	some: -.0e+0 3rd:TRUE,
+	,
+	,
+	"Handle \nbar" 		:	NuLL
+	ary/***/:/**/[]//watch this : []
+	this: null,
+	var: 'me"for \' you'
+	$other_ary: [
+		NUll,
+		FaLsE
+		TRue  ,,,
+		,
+		,
+		"me\u04F2"
+		{}
+	]
+}
+
+// nothing else here

@@ -1,0 +1,32 @@
+{
+  "name": "RelaxedJsonParser",
+  "version": "1.0.0",
+  "description": "A JSON parser which accepts laxly-formatted JSON input (using PEG.js) ",
+  "directories": {
+    "src": "src",
+    "test": "test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  	"pegjs": "0.7.x",
+    "mocha": "1.6.x",
+    "should": "1.2.x"
+  },
+  "scripts": {
+  	"pretest": "[ ! -e lib/PegjsJsonParser.js -o src/PegjsJsonParser.pegjs -nt lib/PegjsJsonParser.js ] && ./node_modules/.bin/pegjs --track-line-and-column src/PegjsJsonParser.pegjs lib/PegjsJsonParser.js || true",
+    "test": "./node_modules/.bin/mocha -u tdd -R spec test/parser.test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jceme/RelaxedJsonParser.git"
+  },
+  "keywords": [
+    "json",
+    "parse",
+    "parser",
+    "parsing"
+  ],
+  "author": "Daniel",
+  "license": "GPL"
+}
