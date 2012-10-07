@@ -50,11 +50,17 @@ var fs = require("fs"),
 	Parser = require("JsonParser");
 
 fs.readFile("myconf.json", function(err, source) {
+	var jsondata;
 	if (err) throw err;
 	
-	var jsondata = Parser.parse(source);
-	
-	// JSON parsed into jsondata, you are now free to use it ...
+	try {
+		jsondata = Parser.parse(source);
+		
+		// JSON parsed into jsondata, you are now free to use it ...
+	}
+	catch (e) {
+		// If even this JSON source is not parseable then an error is thrown by the parser
+	}
 });
 ```
 
