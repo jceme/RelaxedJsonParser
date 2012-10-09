@@ -2,11 +2,10 @@
   "name": "RelaxedJsonParser",
   "version": "1.0.0",
   "description": "A JSON parser which accepts laxly-formatted JSON input (using PEG.js) ",
+  "main": "lib/JsonParser.js",
   "directories": {
     "src": "src",
     "test": "test"
-  },
-  "dependencies": {
   },
   "devDependencies": {
   	"pegjs": "0.7.x",
