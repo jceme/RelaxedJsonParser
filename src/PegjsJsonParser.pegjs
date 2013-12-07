@@ -178,15 +178,35 @@ n:(
 	sign?
 	(
 		(
-			( '0' / (Digit digit*) )
-			( '.' digit+ )?
+			'0' [xX] hexdigit+
 		)
-	/	( '.' digit+ )
+		/ (
+			'0' digit+
+		)
+		/ (
+			(
+				(
+					( '0' / (Digit digit*) )
+					( '.' digit+ )?
+				)
+			/	( '.' digit+ )
+			)
+			exponent?
+		)
 	)
-	exponent?
 )
 {
-	return parseFloat(flatten(n));
+	var fn = flatten(n);
+	
+	if (/^[+-]?0[xX]\d+/.test(fn)) {
+		return parseInt(fn, 16);
+	}
+	
+	if (/^[+-]?0\d+/.test(fn)) {
+		return parseInt(fn, 8);
+	}
+	
+	return parseFloat(fn);
 }
 
 sign = [+-]

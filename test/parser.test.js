@@ -100,7 +100,6 @@ suite("Parser test", function() {
 			equal(-0.8, "-.8//4");
 			equal(0.8, "+8e-1");
 			equal(-80, "-8E+1");
-			(function() { Parser.parse("072"); }).should.throwError();
 			(function() { Parser.parse("8."); }).should.throwError();
 		});
 
@@ -124,6 +123,16 @@ suite("Parser test", function() {
 			equal([], "  [\n] ");
 			equal(["foo","bar"], "[\"foo\"\n  'bar']");
 			equal(["foo","rab"], " /* say my */\n  // name  \n  ['foo',\"rab\"]");
+		});
+		
+		test("Octal parsing", function() {
+			equal([0755], "[0755]");
+			equal([-0064], "[-0064]");
+		});
+		
+		test("Hexa parsing", function() {
+			equal([0x2F9], "[0x2F9]");
+			equal([-0x04a], "[-0x04a]");
 		});
 
 	})(function equal(expected, source) {

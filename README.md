@@ -39,6 +39,9 @@ on"
 
 	/* And most important */
 	foo: +.3E-0,
+	
+	bar: 0644,
+	test: 0xFF,
 }
 
 // That's it!
@@ -79,6 +82,8 @@ The *jsondata* variable in the callback will be this Javascript object:
 		"active",
 		"disabled"
 	],
-	"foo": 0.3
+	"foo": 0.3,
+	"bar": 420,
+	"test": 255
 }
 ```
