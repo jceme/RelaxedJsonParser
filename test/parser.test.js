@@ -127,11 +127,13 @@ suite("Parser test", function() {
 		
 		test("Octal parsing", function() {
 			equal([0755], "[0755]");
+			equal([780], "[0780]");  // must parse as decimal number
 			equal([-0064], "[-0064]");
 		});
 		
 		test("Hexa parsing", function() {
 			equal([0x2F9], "[0x2F9]");
+			equal([0xFF], "[0xFF]");
 			equal([-0x04a], "[-0x04a]");
 		});
 

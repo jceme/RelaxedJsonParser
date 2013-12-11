@@ -198,11 +198,11 @@ n:(
 {
 	var fn = flatten(n);
 	
-	if (/^[+-]?0[xX]\d+/.test(fn)) {
+	if (/^[+-]?0[xX]/.test(fn)) {
 		return parseInt(fn, 16);
 	}
 	
-	if (/^[+-]?0\d+/.test(fn)) {
+	if (/^[+-]?0[0-7]+$/.test(fn)) {
 		return parseInt(fn, 8);
 	}
 	
